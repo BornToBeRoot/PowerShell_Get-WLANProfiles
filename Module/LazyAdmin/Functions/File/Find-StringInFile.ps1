@@ -39,7 +39,7 @@ function Find-StringInFile
 	param(
 	[Parameter(
 			Position=0,
-			Mandatory=$true,
+			Mandatory=$true, ValueFromPipeline=$true,
 			HelpMessage="String to find")]
 		[String]$Search,
 
@@ -85,7 +85,7 @@ function Find-StringInFile
 					Path = $Group.Path
 					LineNumber = $Group.LineNumber
 					IsBinary = $IsBinary
-					Matches = $Group.Matches
+					Matches = $Group.Matches.Value
 				}
 			}   
 		}
